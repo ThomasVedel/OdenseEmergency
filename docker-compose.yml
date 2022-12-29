@@ -1,0 +1,19 @@
+version: "3.9"  # optional since v1.27.0
+services:
+  frontend:
+    build: ./Frontend
+    ports:
+      - "80:80"
+    depends_on:
+      - backend
+  backend:
+    build: ./Backend
+    ports:
+      - "3000:3000"
+    environment:
+      - PORT=3000
+      - NODE_ENV=development
+      - MONGO_DB_CONNECTION_STRING=mongodb+srv://Thomas:Slagelsehk14@evacuation.ca7nf5r.mongodb.net/?retryWrites=true&w=majority
+      - MONGO_DB_NAME=Emergency
+      - REDIS_URI=rediss://default:AVNS_MBmRJsECeBcIx-7HBCs@redis-3495147d-hotmail-e30a.aivencloud.com:27344
+      
